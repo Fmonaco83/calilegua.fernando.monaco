@@ -4,12 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
+
 function App() {
   return (
     <div>
         <NavBar/>
         
-        <ItemListContainer greeting={ {descripcion: 'Proximamente podras disfrutar de nuestros productos', boton:'PROXIMAMENTE'} } />
+        <ItemListContainer greeting={ {descripcion: 'Proximamente podras disfrutar de nuestros productos', boton:'PROXIMAMENTE'} }  />
+        
     </div>
   );
 }  
