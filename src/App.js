@@ -10,9 +10,9 @@ function App() {
     <div>
         <NavBar/>
         
-        <ItemListContainer greeting={ {descripcion: 'Proximamente podras disfrutar de nuestros productos', boton:'PROXIMAMENTE'} }  />
+        <ItemListContainer/>
         
-    </div>
+    </div>  
   );
 }  
 

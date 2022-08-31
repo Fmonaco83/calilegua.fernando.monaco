@@ -4,10 +4,10 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 
 
-export const ItemCount = ({initial, stock}) => {
+export const ItemCount = ({stock}) => {
 
 
-let [counter, setCounter] = useState(initial)
+let [counter, setCounter] = useState(0)
 
 
 const sumar = () => {
@@ -18,7 +18,7 @@ const sumar = () => {
 }
 
 const restar = () =>{
-    if(counter > initial){
+    if(counter > 0){
     setCounter(counter-1)
     console.log(counter)
 } 
