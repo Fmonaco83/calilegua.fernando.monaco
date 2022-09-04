@@ -1,0 +1,42 @@
+
+.cardDet{
+    width: 70%;
+    background-color: rgb(243, 235, 235);
+    border: 2px rgb(194, 189, 189) solid;
+    display: flex;
+    margin: 50px auto;
+}
+
+.imagen{
+    width: 300px;
+}
+
+.textos{
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+}
+.titulo {
+    margin: 50px;
+}
+
+.bot{
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    
+}
+
+.botn{
+    display: flex;
+    align-items: flex-end;
+
+    
+}
+
+.st {
+    margin-right: 10px;
+    
+}

@@ -9,7 +9,7 @@ export const items =[
       descripcion: "Dije y cadena de plata",
       img: "./img/dijeSusanito.jpg",
       precio: "500",
-      stock: 0,
+      stock: 5,
     },
     {
       id: 2,
