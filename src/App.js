@@ -1,23 +1,31 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from './components/navbar/NavBar';
 import { ItemListContainer } from './components/itemlistcontainer/ItemListContainer';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { ItemDetailConteiner } from './components/itemdetailconteiner/ItemDetailConteiner';
-
-
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { Nosotros } from './components/nosotros/Nosotros';
+import { PreguntasFrecuentes } from './components/preguntasfrecuentes/PreguntasFrecuentes';
+import { ItemDetailContainer } from './components/itemdetailcontainer/ItemDetailContainer';
 
 function App() {
   return (
-    <div>
-        <NavBar/>
-        
-        <ItemListContainer/>
 
-      
-        <ItemDetailConteiner/>
-     
-       
-    </div>  
-  );
+    <BrowserRouter>
+          
+          <NavBar/>
+          
+          <Routes>
+             <Route path='/' element={ <ItemListContainer/> }/>
+             <Route path='/data/:categoryId' element={ <ItemListContainer/> }/>
+             <Route path='item/:itemId' element={ <ItemDetailContainer/> }/>
+
+             <Route path='/nosotros' element={ <Nosotros/> }/>
+             <Route path='/preguntasfrecuentes' element={ <PreguntasFrecuentes/> }/>
+             <Route path='*' element={ <Navigate to="/"/> }/>
+          </Routes>
+    
+    
+     </BrowserRouter>
+ );
 }  
 
 export default App;

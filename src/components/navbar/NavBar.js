@@ -4,10 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/logocali.png';
 import '../navbar/NavBar.css'
 import { CartWidget } from '../cartwidget/CartWidget';
-
-
-
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -20,10 +17,13 @@ export const NavBar = () => {
           <Navbar.Brand href="#home">
             <div><img className='logo' src={logo} alt="corona"/></div>
           </Navbar.Brand>
-          <Nav className="me-auto" >
-            <Nav.Link  href="#home">Inicio</Nav.Link>
-            <Nav.Link  href="#features">Productos</Nav.Link>
-            <Nav.Link  href="#pricing">Preguntas Frecuentes</Nav.Link>
+          <Nav className="me-auto mx-5 barra" >
+            <Link className="txtb" to='/'>Inicio</Link>
+            <Link className="txtb" to='/nosotros'>Nosotros</Link>
+            <Link className="txtb" to='/preguntasfrecuentes'>Preguntas Frecuentes</Link>
+            <Link className="txtb" to='/data/plata'>Plata</Link>
+            <Link className="txtb" to='/data/fantansia'>Fantasia</Link>
+            <Link className="txtb" to='/data/pulseras'>Pulseras</Link>
           </Nav>
           <CartWidget/>
        </Container>

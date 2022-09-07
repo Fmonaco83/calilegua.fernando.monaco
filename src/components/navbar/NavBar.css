@@ -5,5 +5,15 @@
 .cn{
     background-color: bisque;
     border-bottom: goldenrod 1px solid;
+    ;
 }
 
+.barra{
+    gap: 20px;
+}
+
+.txtb{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}

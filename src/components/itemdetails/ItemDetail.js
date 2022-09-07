@@ -1,33 +1,36 @@
 import Button from 'react-bootstrap/Button';
-import { ItemCount } from '../itemcount/ItemCount';
 import './ItemDetail.css'
+import { ItemCount } from '../itemcount/ItemCount';
 
 
 
-export const ItemDetail = ({ nombre, descripcion, img, precio, stock }) => {
+
+
+export const ItemDetail = ({data}) => {
     return (
          <div className='cardDet'>
             <div>   
-               <img className='imagen' src={img} alt='dije'/>
+               <img className='imagen' src={data.img} alt='dije'/>
             </div>
             <div className='titulo'>
                <h3>
-                  {nombre}
+                  {data.nombre}
                </h3>
             </div>
             <div className='textos'>
                
-                  {descripcion}
+                  {data.descripcion}
               
             </div>
             <div className='botn'>
-               <Button className='btn bot '>Comprar</Button>
+               <Button className='btn bot '> COMPRAR</Button>
+               <ItemCount stock={data.stock}/>
             </div>
             <div className='st'>
-               Stock {stock}
-               <ItemCount size='lg' stock={stock}/>
-               Precio ${precio}
+               Stock {data.stock}
+               Precio ${data.precio}
             </div>   
+            
 </div>            
          
     )
