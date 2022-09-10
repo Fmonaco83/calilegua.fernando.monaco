@@ -2,11 +2,25 @@ import Card from 'react-bootstrap/Card';
 import { ItemCount } from '../itemcount/ItemCount'
 import './Item.css'
 import { Link } from 'react-router-dom';
-import { items } from '../../data/data';
-import { ItemDetailContainer } from '../itemdetailcontainer/ItemDetailContainer';
+import { useState } from "react";
+import { ItemDetail } from '../itemdetails/ItemDetail';
 
 
-export const Item = ({item}) => {
+export const Item = ({item,}) => {
+
+
+  const [cantidad, setCantidad] = useState(0)
+
+
+
+  const handleAgregar = () => {
+     console.log({
+        ...item,
+        cantidad
+     })
+
+}
+
     return(
         <Card className='tarjeta' style={{ width: '18rem' }}>
       <Card.Img variant="top" src={item.img} />
@@ -21,7 +35,11 @@ export const Item = ({item}) => {
         <Card.Text>
         Stock {item.stock}
         </Card.Text>
-        <ItemCount stock={item.stock}/>
+        <ItemCount stock={item.stock}
+          counter={cantidad}
+          setCounter={setCantidad}
+          handleAgregar={handleAgregar}
+        />
         <Link to={`/item/${item.id}`} className='btn btn-primary my-2'>Ver Mas</Link>
       </Card.Body>
     </Card>

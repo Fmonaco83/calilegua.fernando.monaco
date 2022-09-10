@@ -1,4 +1,3 @@
-import { Item } from '../item/Item';
 import { useEffect, useState } from 'react';
 import { items } from '../../data/data';
 import { useParams } from 'react-router-dom';
@@ -7,15 +6,15 @@ import { ItemDetail } from '../itemdetails/ItemDetail';
 
 export const ItemDetailContainer = () => {
 
-    const [data, setData] = useState([])
+    const [item, setItem] = useState([])
     const [loading, setLoading] = useState(true)
 
     const {itemId} = useParams()
 
     console.log(itemId)
-    console.log (data)
+    console.log (item)
 
-    const getData = () => {
+    const getItem = () => {
       const error = false;
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -34,9 +33,9 @@ export const ItemDetailContainer = () => {
     useEffect (()=> {
         setLoading(true)
         
-        getData()
+        getItem()
             .then((res) => {
-                setData( res.find((item) => item.id === Number(itemId)) )
+                setItem( res.find((item) => item.id === Number(itemId)) )
             })
             .catch(err => console.log(err))
             .finally(() => {
@@ -51,7 +50,7 @@ export const ItemDetailContainer = () => {
         <div>
             {
             loading ? <Spinner animation="grow" variant="primary" />
-            : <ItemDetail data={data}/> 
+            : <ItemDetail item={item}/> 
 
 
 

@@ -1,36 +1,52 @@
 import Button from 'react-bootstrap/Button';
 import './ItemDetail.css'
 import { ItemCount } from '../itemcount/ItemCount';
+import { useState } from "react";
 
 
 
 
 
-export const ItemDetail = ({data}) => {
+export const ItemDetail = ({item}) => {
+
+   const [cantidad, setCantidad] = useState(0)
+
+
+
+   const handleAgregar = () => {
+      console.log({
+         ...item,
+         cantidad
+      })
+ 
+ }
+
+
     return (
          <div className='cardDet'>
             <div>   
-               <img className='imagen' src={data.img} alt='dije'/>
+               <img className='imagen' src={item.img} alt='dije'/>
             </div>
             <div className='titulo'>
                <h3>
-                  {data.nombre}
+                  {item.nombre}
                </h3>
             </div>
             <div className='textos'>
-               
-                  {data.descripcion}
-              
+               {item.descripcion}
             </div>
             <div className='botn'>
                <Button className='btn bot '> COMPRAR</Button>
-               <ItemCount stock={data.stock}/>
+                     <ItemCount stock={item.stock}
+                     counter={cantidad}
+                     setCounter={setCantidad}
+                     handleAgregar={handleAgregar}
+                     />
             </div>
             <div className='st'>
-               Stock {data.stock}
-               Precio ${data.precio}
+               Stock {item.stock}
+               Precio ${item.precio}
             </div>   
-            
 </div>            
          
     )
