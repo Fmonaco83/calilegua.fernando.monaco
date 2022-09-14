@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ItemDetail } from "../itemdetails/ItemDetail";
 
 
-export const ItemCount = ({stock, counter, setCounter,handleAgregar,agregar}) => {
+export const ItemCount = ({stock, counter, setCounter,handleAgregar,}) => {
 
 
 
@@ -31,8 +31,7 @@ const restar = () =>{
         <Button onClick={sumar}>+</Button>
             <p className="mx-2"> {counter} </p>
         <Button  onClick={restar}>-</Button>
-        <Link onClick={handleAgregar} to={`/cart/${agregar}`} className='btn btn-primary my-2'>Agregar al Carrito</Link>
-
+        <Button className="mx-5" onClick={handleAgregar}>agregar</Button>
     </ButtonGroup> 
 
     

@@ -1,7 +1,9 @@
 import Button from 'react-bootstrap/Button';
 import './ItemDetail.css'
 import { ItemCount } from '../itemcount/ItemCount';
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from '../contex/CartContext';
+import { Link } from 'react-router-dom';
 
 
 
@@ -9,15 +11,17 @@ import { useState } from "react";
 
 export const ItemDetail = ({item}) => {
 
+   
+   const { cart, addToCart, isInCart } =useContext(CartContext)
+   console.log(cart)
+   
    const [cantidad, setCantidad] = useState(0)
 
 
 
    const handleAgregar = () => {
-      console.log({
-         ...item,
-         cantidad
-      })
+      console.log(isInCart(item.id))
+      addToCart(item)
  
  }
 
@@ -35,18 +39,30 @@ export const ItemDetail = ({item}) => {
             <div className='textos'>
                {item.descripcion}
             </div>
-            <div className='botn'>
-               <Button className='btn bot '> COMPRAR</Button>
-                     <ItemCount stock={item.stock}
-                     counter={cantidad}
-                     setCounter={setCantidad}
-                     handleAgregar={handleAgregar}
-                     />
-            </div>
+            
             <div className='st'>
                Stock {item.stock}
                Precio ${item.precio}
+               {
+                  isInCart(item.id)
+                   ?  <Link to="/cart" className='btn btn-primary '>Finalizar Compra</Link>
+                   :
+                        <div className='botn'>
+            
+                               <ItemCount stock={item.stock}
+                               counter={cantidad}
+                               setCounter={setCantidad}
+                               handleAgregar={handleAgregar} />
+                               
+                        </div>
+
+                     
+               }
+
+
+               
             </div>   
+            
 </div>            
          
     )

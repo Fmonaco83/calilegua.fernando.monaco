@@ -6,10 +6,21 @@ import { Nosotros } from './components/nosotros/Nosotros';
 import { PreguntasFrecuentes } from './components/preguntasfrecuentes/PreguntasFrecuentes';
 import { ItemDetailContainer } from './components/itemdetailcontainer/ItemDetailContainer';
 import { Cart } from './components/cart/Cart'
+import { CartProvider } from './components/contex/CartContext'
+
+
+
+
+
+
 
 function App() {
-  return (
 
+
+
+  return (
+  <CartProvider>
+ 
     <BrowserRouter>
           
           <NavBar/>
@@ -18,7 +29,7 @@ function App() {
              <Route path='/' element={ <ItemListContainer/> }/>
              <Route path='/data/:categoryId' element={ <ItemListContainer/> }/>
              <Route path='item/:itemId' element={ <ItemDetailContainer/> }/>
-             <Route path='cart/:agregar' element={<Cart/>}/>
+             <Route path='cart' element={<Cart/>}/>
              <Route path='/nosotros' element={ <Nosotros/> }/>
              <Route path='/preguntasfrecuentes' element={ <PreguntasFrecuentes/> }/>
              <Route path='*' element={ <Navigate to="/"/> }/>
@@ -26,7 +37,10 @@ function App() {
     
     
      </BrowserRouter>
+
+
+  </CartProvider>   
  );
 }  
-
+ 
 export default App;
