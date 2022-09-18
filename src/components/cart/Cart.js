@@ -1,19 +1,19 @@
 import { useContext } from "react"
 import { CartContext } from "../contex/CartContext"
-import { Item } from "../item/Item"
 import Card from 'react-bootstrap/Card';
-import { Button } from "bootstrap";
+import { Link } from 'react-router-dom';
+
+
 
 export const Cart = () => {
 
-    const { cart, emptyCart, removeItem} = useContext(CartContext)
+  
+    const { cart, emptyCart, removeItem, cartTotal } = useContext(CartContext)
 
-
+    
     return(
-      <div>  
-        <h3>
-            Este es el Carrito 
-        </h3>
+     cart != 0 ?
+      <div>
         {cart.map((item) => (
 
             <div key={item.id}>
@@ -36,7 +36,10 @@ export const Cart = () => {
 
         ))}
       <button onClick={emptyCart} className="btn btn-primary">Vaciar Carrito</button>
-
+      <h3>Total: ${cartTotal()}</h3>
         </div>
-    )
+ : <Link className="txtb" to='/'>
+  <button className="btn btn-primary">Selecciona tus productos</button>
+  </Link>   
+  )
 }

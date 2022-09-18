@@ -1,9 +1,10 @@
-import Button from 'react-bootstrap/Button';
+
 import './ItemDetail.css'
 import { ItemCount } from '../itemcount/ItemCount';
 import { useContext, useState } from "react";
 import { CartContext } from '../contex/CartContext';
 import { Link } from 'react-router-dom';
+
 
 
 
@@ -20,8 +21,11 @@ export const ItemDetail = ({item}) => {
 
 
    const handleAgregar = () => {
-      console.log(isInCart(item.id))
-      addToCart(item)
+      addToCart({
+         ...item,
+         cantidad
+      })
+      
  
  }
 
@@ -43,6 +47,7 @@ export const ItemDetail = ({item}) => {
             <div className='st'>
                Stock {item.stock}
                Precio ${item.precio}
+               
                {
                   isInCart(item.id)
                    ?  <Link to="/cart" className='btn btn-primary '>Finalizar Compra</Link>

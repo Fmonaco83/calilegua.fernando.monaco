@@ -11,6 +11,7 @@ export const items =[
       precio: "500",
       stock: 5,
       category:"plata",
+     
     },
     {
       id: 2,
@@ -20,6 +21,7 @@ export const items =[
       precio: "3100",
       stock: 5,
       category:"fantansia",
+      
     },
     {
       id: 3,
@@ -29,6 +31,7 @@ export const items =[
       precio: "3200",
       stock: 10,
       category:"pulseras",
+      cantidad: ""
     },
     {
       id: 4,
@@ -38,6 +41,7 @@ export const items =[
       precio: "300",
       stock: 1,
       category:"plata",
+      cantidad: ""
     },
     {
       id: 5,
@@ -47,6 +51,7 @@ export const items =[
       precio: "500",
       stock: 5,
       category:"plata",
+      cantidad: ""
     },
     {
       id: 6,
@@ -56,6 +61,7 @@ export const items =[
       precio: "3100",
       stock: 5,
       category:"fantansia",
+      cantidad: ""
     },
     {
       id: 7,
@@ -65,6 +71,7 @@ export const items =[
       precio: "3200",
       stock: 10,
       category:"pulseras",
+      cantidad: ""
     },
     {
       id: 8,
@@ -74,6 +81,7 @@ export const items =[
       precio: "300",
       stock: 1,
       category:"plata",
+      cantidad: ""
     },
   ] 
   

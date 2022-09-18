@@ -1,0 +1,10 @@
+.widget{
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+}
+
+.widget-v{
+    visibility: visible;
+    opacity: 1;
+}

@@ -15,7 +15,9 @@ export const NavBar = () => {
       <Navbar className='cn'>
         <Container>
           <Navbar.Brand href="#home">
+            <Link className="txtb" to='/'>
             <div><img className='logo' src={logo} alt="corona"/></div>
+            </Link>
           </Navbar.Brand>
           <Nav className="me-auto mx-5 barra" >
             <Link className="txtb" to='/'>Inicio</Link>
