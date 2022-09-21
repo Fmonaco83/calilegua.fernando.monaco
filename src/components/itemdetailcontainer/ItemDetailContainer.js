@@ -3,6 +3,8 @@ import { items } from '../../data/data';
 import { useParams } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 import { ItemDetail } from '../itemdetails/ItemDetail';
+import { doc,getDoc } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 
 export const ItemDetailContainer = () => {
 
@@ -32,15 +34,18 @@ export const ItemDetailContainer = () => {
 
     useEffect (()=> {
         setLoading(true)
+      
+        const docRef = doc(db, 'productos', itemId)
+        getDoc(docRef)
+          .then((doc) => {
+               setItem({id: doc.id, ...doc.data()})
+          })
+          .finally(() => {
+              setLoading(false)
+          })
+
         
-        getItem()
-            .then((res) => {
-                setItem( res.find((item) => item.id === Number(itemId)) )
-            })
-            .catch(err => console.log(err))
-            .finally(() => {
-                setLoading(false)
-            })
+      
       
     }, [])
   

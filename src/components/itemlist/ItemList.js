@@ -4,6 +4,8 @@ import { items } from '../../data/data';
 import './ItemList.css'
 import { useParams } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
+import { collection, getDocs, query, where  } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 
 export const ItemList = () => {
 
@@ -24,28 +26,28 @@ export const ItemList = () => {
     }
   
   const {categoryId} = useParams ()
-  console.log(categoryId)
+  
 
 
 
     useEffect (()=> {
       setLoading(true)
+     const productosRef = collection(db, 'productos')
+     const det = categoryId ? query(productosRef, where('category', '==', categoryId))
+            : productosRef
+     
+     getDocs(det)
+        .then((resp) => {
+          const productosDB = resp.docs.map( (doc) =>({id: doc.id, ...doc.data()}))
 
-      getData()
-      .then ((res) => {
+          setData(productosDB)
+        })
+        .finally(() =>{
+          setLoading(false)
+        })
 
-        if (!categoryId) {
-          setData(res)
-        }else{
-          setData(res.filter((item) => item.category === categoryId))
-        }      
 
-      })
-        
-      .catch(error => console.log(error))
-      .finally(() => {
-        setLoading(false)
-      })      
+     
     }, [categoryId])
   
 
