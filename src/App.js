@@ -7,6 +7,7 @@ import { PreguntasFrecuentes } from './components/preguntasfrecuentes/PreguntasF
 import { ItemDetailContainer } from './components/itemdetailcontainer/ItemDetailContainer';
 import { Cart } from './components/cart/Cart'
 import { CartProvider } from './components/contex/CartContext'
+import { Checkout } from './components/checkout/Checkout';
 
 
 
@@ -33,11 +34,12 @@ function App() {
              <Route path='/nosotros' element={ <Nosotros/> }/>
              <Route path='/preguntasfrecuentes' element={ <PreguntasFrecuentes/> }/>
              <Route path='*' element={ <Navigate to="/"/> }/>
+             <Route path='/checkout'  element={<Checkout/>}/>
           </Routes>
     
     
      </BrowserRouter>
-
+   
 
   </CartProvider>   
  );

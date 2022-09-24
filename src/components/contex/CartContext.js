@@ -1,4 +1,4 @@
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useContext  } from "react";
 import { useState } from "react";
 import Swal from 'sweetalert2'
 
@@ -40,6 +40,17 @@ export const CartProvider = ({children}) => {
   
  }
 
+ const terminarCompra = (id) =>{
+  Swal.fire({
+    title: 'Compra realizada con exito',
+    text: `Numero de orden: ${id} `,
+    icon: 'success',
+    confirmButtonColor: '#3085d6',
+    confirmButtonText: 'OK'
+  })
+  setCart([])
+ }
+
  const removeItem = (id) =>{
     setCart(cart.filter((item) => item.id !== id))
      
@@ -62,10 +73,15 @@ const cartTotal = () => {
             cartQuantity,
             emptyCart,
             removeItem,
-            cartTotal
+            cartTotal,
+            terminarCompra
           } }>
             {children}
         
         </CartContext.Provider>
     )
+}
+
+export const useCartContext = () => {
+  return useContext(CartContext)
 }

@@ -31,6 +31,7 @@ export const Cart = () => {
         </Card.Body>
         <button onClick={() => removeItem(item.id)} className="btn btn-primary">Eliminar</button>
         </Card>
+        <Link to="/checkout" className='btn btn-primary my-2'>Terminar Compra</Link>
 
             </div>
 
@@ -40,6 +41,7 @@ export const Cart = () => {
         </div>
  : <Link className="txtb" to='/'>
   <button className="btn btn-primary">Selecciona tus productos</button>
+ 
   </Link>   
   )
 }
