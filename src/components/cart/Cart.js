@@ -2,7 +2,8 @@ import { useContext } from "react"
 import { CartContext } from "../contex/CartContext"
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-
+import { Icon } from '@iconify/react';
+import '../cart/cart.css';
 
 
 export const Cart = () => {
@@ -13,35 +14,43 @@ export const Cart = () => {
     
     return(
      cart != 0 ?
-      <div>
+      <div className="mt-5" >
         {cart.map((item) => (
 
-            <div key={item.id}>
-                  <Card className='tarjeta' style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={item.img} />
-      <Card.Body>
-        <Card.Title>{item.nombre}</Card.Title>
-        <Card.Text>
-        {item.descripcion}
-        </Card.Text>
-        <Card.Text>
-        $ {item.precio}
-        Cantidad: {item.cantidad}
-        </Card.Text>
-        </Card.Body>
-        <button onClick={() => removeItem(item.id)} className="btn btn-primary">Eliminar</button>
-        </Card>
-        <Link to="/checkout" className='btn btn-primary my-2'>Terminar Compra</Link>
-
-            </div>
-
+        <div className="row" key={item.id}>
+             <Card style={{ width: '10rem' }}>
+                    <Card.Img variant="top" src={item.img} />
+              </Card>    
+              <Card className="col">
+                 <Card.Body>
+                    <Card.Title>
+                        {item.nombre}
+                    </Card.Title>
+                    <Card.Text>
+                        {item.descripcion}
+                    </Card.Text>
+                    <Card.Text>
+                        Precio $ {item.precio}
+                        <br/><hr/>
+                        Cantidad: {item.cantidad}
+                    </Card.Text>
+                        <hr/>
+                    <Card.Text>
+                
+                    </Card.Text>
+                    </Card.Body>
+                <Icon icon="ep:delete" onClick={() => removeItem(item.id)}> </Icon>
+            </Card> 
+      </div>
+        
         ))}
-      <button onClick={emptyCart} className="btn btn-primary">Vaciar Carrito</button>
-      <h3>Total: ${cartTotal()}</h3>
+           <h3>Total: ${cartTotal()}</h3>
+      <button onClick={emptyCart} className="btn btn-primary mx-3 my-5">Vaciar Carrito</button>
+      <Link to="/checkout" className='btn btn-primary my-2'>Terminar Compra</Link>
+   
         </div>
- : <Link className="txtb" to='/'>
-  <button className="btn btn-primary">Selecciona tus productos</button>
- 
-  </Link>   
+        : <Link className="seguirComprando" to='/'>
+          <button className="btn btn-primary">Selecciona tus productos</button>
+          </Link>   
   )
 }

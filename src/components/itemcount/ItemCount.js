@@ -13,14 +13,14 @@ export const ItemCount = ({stock, counter, setCounter,handleAgregar,}) => {
 const sumar = () => {
     if(counter < stock) {
     setCounter(counter + 1)
-    console.log(counter)
+   
  }
 }
 
 const restar = () =>{
-    if(counter > 0){
+    if(counter > 1){
     setCounter(counter-1)
-    console.log(counter)
+   
 } 
 }
 

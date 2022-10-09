@@ -16,7 +16,8 @@ export const Checkout = () => {
     const [values, setValues] = useState({
         nombre:'',
         email:'',
-        direccion:''
+        direccion:'',
+    
     })
 
     const handleImputChange = (e) => {
@@ -41,14 +42,12 @@ export const Checkout = () => {
             
             
         }
-        console.log("Submit del form")
-            console.log(orden)
+        
 
       const ordenesRef =collection(db, 'ordenes')
 
       addDoc(ordenesRef,orden)
         .then((doc) => {
-            console.log(doc.id)
             terminarCompra(doc.id)
         })
     }
@@ -60,7 +59,7 @@ export const Checkout = () => {
 
     return (
         <div className="container my-5">
-        <h3>este es el checkout</h3>
+
         <form onSubmit={handleSubmit}>
             <input 
                 name="nombre"
@@ -78,6 +77,7 @@ export const Checkout = () => {
                 className=" my-3 form-control" 
                 placeholder="Mail"
             />
+    
             <input 
                 name="direccion"
                 onChange={handleImputChange}
@@ -89,5 +89,7 @@ export const Checkout = () => {
             <button type="submit" className="btn btn-primary">Enviar</button>
         </form>
         </div>  
+
+        
     )
 }

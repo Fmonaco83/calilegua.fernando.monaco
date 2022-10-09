@@ -1,9 +1,9 @@
-
 import './ItemDetail.css'
 import { ItemCount } from '../itemcount/ItemCount';
 import { useContext, useState } from "react";
 import { CartContext } from '../contex/CartContext';
 import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
 
 
 
@@ -14,9 +14,9 @@ export const ItemDetail = ({item}) => {
 
    
    const { cart, addToCart, isInCart } =useContext(CartContext)
-   console.log(cart)
+  
    
-   const [cantidad, setCantidad] = useState(0)
+   const [cantidad, setCantidad] = useState(1)
 
 
 
@@ -31,44 +31,80 @@ export const ItemDetail = ({item}) => {
 
 
     return (
-         <div className='cardDet'>
-            <div>   
-               <img className='imagen' src={item.img} alt='dije'/>
-            </div>
-            <div className='titulo'>
-               <h3>
-                  {item.nombre}
-               </h3>
-            </div>
-            <div className='textos'>
-               {item.descripcion}
-            </div>
-            
-            <div className='st'>
-               Stock {item.stock}
-               Precio ${item.precio}
-               
-               {
+
+
+ 
+      
+       <div className='mx-5 mt-5 row'>
+              
+      <Card className='cardDetalle' style={{ width: '30rem' }}>
+            <Card.Img variant="top" src={item.img} alt='dije' />
+      </Card>
+      
+      <Card className=' col '>
+            <Card.Body>
+        
+              <Card.Text >
+                   <h1>
+                     {item.nombre}
+                   </h1>
+               </Card.Text>
+                   <hr/>
+               <Card.Text>
+                   <h4>
+                     Categoria:{item.category}
+                     <br/><br/>
+                  {item.descripcion}
+                   </h4>
+               </Card.Text>
+                     <br/>
+               <Card.Text>
+                   <h4>
+                     Precio ${item.precio}
+                     </h4>
+               </Card.Text>
+                     Stock {item.stock}
+               <Card.Text>
+       
+                     <br/><hr/>
+       
+        {
                   isInCart(item.id)
-                   ?  <Link to="/cart" className='btn btn-primary '>Finalizar Compra</Link>
+                   ?  <Link to="/cart" className='btn btn-primary '>Finalizar Compra</Link> 
+                   
                    :
                         <div className='botn'>
-            
+                           
+                           
                                <ItemCount stock={item.stock}
                                counter={cantidad}
                                setCounter={setCantidad}
-                               handleAgregar={handleAgregar} />
+                               handleAgregar={handleAgregar} 
+                               />
+                                 
                                
                         </div>
-
+               
                      
                }
+       </Card.Text> 
+       <Link className="seguirComprando" to='/'>
+           <button className="btn btn-warning">Seguir Comprando</button>
+        </Link>
+      </Card.Body>       
+     
+       
+      </Card>
+
+                  
+            
 
 
                
-            </div>   
+      </div>   
             
-</div>            
+           
+
          
     )
 }

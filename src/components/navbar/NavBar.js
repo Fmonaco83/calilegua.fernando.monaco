@@ -9,28 +9,33 @@ import { Link } from 'react-router-dom';
 
 
 
+
 export const NavBar = () => {
     return(
-    
-      <Navbar className='cn'>
-        <Container>
-          <Navbar.Brand href="#home">
+
+      <Navbar  expand="lg" className='cn'>
+      <Container>
+        <Navbar.Brand href="#home">
             <Link className="txtb" to='/'>
             <div><img className='logo' src={logo} alt="corona"/></div>
             </Link>
-          </Navbar.Brand>
-          <Nav className="me-auto mx-5 barra" >
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto barra">
             <Link className="txtb" to='/'>Inicio</Link>
-            <Link className="txtb" to='/nosotros'>Nosotros</Link>
-            <Link className="txtb" to='/preguntasfrecuentes'>Preguntas Frecuentes</Link>
             <Link className="txtb" to='/data/plata'>Plata</Link>
             <Link className="txtb" to='/data/fantansia'>Fantasia</Link>
-            <Link className="txtb" to='/data/pulseras'>Pulseras</Link>
+            <Link className="txtb" to='/data/pulseras'>Pulseras</Link>           
           </Nav>
           <CartWidget/>
-       </Container>
-      </Navbar>
-
-
-    )
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
+   
+ 
+
+      
+

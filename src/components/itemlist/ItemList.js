@@ -1,11 +1,11 @@
 import { Item } from '../item/Item';
 import { useEffect, useState } from 'react';
-import { items } from '../../data/data';
 import './ItemList.css'
 import { useParams } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 import { collection, getDocs, query, where  } from 'firebase/firestore';
 import { db } from '../../firebase/config';
+import '../itemdetailcontainer/spinner.css'
 
 export const ItemList = () => {
 
@@ -17,7 +17,7 @@ export const ItemList = () => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           if(!error) {
-             resolve(items)
+             resolve(db)
           }else{
              reject("Se produjo un error")
           }
@@ -53,14 +53,14 @@ export const ItemList = () => {
 
     return (
 
-        <div className='row'>
+        <div className='spinner row'>
         {
               loading
-              ?<Spinner animation="grow" variant="primary" />
+              ?<Spinner  animation="grow" variant="primary" />
               : 
               data.map((item) =>(
-              <div className='col-3 car'>
-              <Item item={item} key={item.id} nombre={item.nombre} descripcion={item.descripcion} img={item.img} precio={item.precio} stock={item.stock}/>
+              <div className='my-5 col' >
+              <Item  item={item} key={item.id} nombre={item.nombre} descripcion={item.descripcion} img={item.img} precio={item.precio} stock={item.stock}/>
               </div>
             ))
     

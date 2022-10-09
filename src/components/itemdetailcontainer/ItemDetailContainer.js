@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { items } from '../../data/data';
 import { useParams } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 import { ItemDetail } from '../itemdetails/ItemDetail';
 import { doc,getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
+import './spinner.css'
 
 export const ItemDetailContainer = () => {
 
@@ -13,15 +13,14 @@ export const ItemDetailContainer = () => {
 
     const {itemId} = useParams()
 
-    console.log(itemId)
-    console.log (item)
+    
 
     const getItem = () => {
       const error = false;
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           if(!error) {
-             resolve(items)
+             resolve(db)
           }else{
              reject("Se produjo un error")
           }
@@ -52,7 +51,7 @@ export const ItemDetailContainer = () => {
 
     return (
 
-        <div>
+        <div className='spinner'>
             {
             loading ? <Spinner animation="grow" variant="primary" />
             : <ItemDetail item={item}/> 

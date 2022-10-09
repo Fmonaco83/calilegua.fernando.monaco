@@ -1,3 +1,26 @@
+# Proyecto de e-commerce en React Js
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+
+Proyecto de e-commerce Calilegua Tienda de Accesorios para el curso de [React JS](https://reactjs.org/) en Coderhouse, Realizado por Fernando Mónaco.
+
+### [React Bootstrap](https://react-bootstrap.github.io//)
+Librería de componentes utilizada para dar estilos y armar cada componente
+
+### [React Router Dom](https://reactrouter.com/)
+Para enrutamiento entre componentes y filtrado mediante params\
+
+### [SweetAlert2](https://sweetalert2.github.io/)
+Estilos personalizados de las alertas
+
+### [Firebase](https://firebase.google.com/)
+Almacenamiento del listado de productos y ordenes de compra
+
+### [Netlify](https://www.netlify.com/)
+Utilizado para el Deploy
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
